@@ -19,41 +19,53 @@ class ContactBook extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 10.h),
-          TextFormFieldNameWidget(
-              controllers: nameController,
-              hintTexting: "Enter Your Name",
-              inputType: TextInputType.name),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
+            child: TextFormFieldNameWidget(
+                controllers: nameController,
+                hintTexting: "Enter Your Name",
+                inputType: TextInputType.name),
+          ),
           SizedBox(height: 10.h),
-          TextFormFieldEmailWidget(
-              controllers: emailController,
-              hintTexting: "Enter E-mail",
-              inputType: TextInputType.emailAddress),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
+            child: TextFormFieldEmailWidget(
+                controllers: emailController,
+                hintTexting: "Enter E-mail",
+                inputType: TextInputType.emailAddress),
+          ),
           SizedBox(height: 10.h),
-          TextFormFieldPhoneWidget(
-              controllers: phoneNumController,
-              hintTexting: "Enter Phone Number",
-              inputType: TextInputType.phone),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
+            child: TextFormFieldPhoneWidget(
+                controllers: phoneNumController,
+                hintTexting: "Enter Phone Number",
+                inputType: TextInputType.phone),
+          ),
           SizedBox(height: 10.h),
-          GestureDetector(
-            onTap: () {
-              // Get.to(() => ContactBook());
-              ContactModel model = ContactModel(
-                  name: nameController.text,
-                  email: emailController.text,
-                  phone: phoneNumController.text);
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
+            child: GestureDetector(
+              onTap: () {
+                // Get.to(() => ContactBook());
+                ContactModel model = ContactModel(
+                    name: nameController.text,
+                    email: emailController.text,
+                    phone: phoneNumController.text);
 
-              appData.addContacts(model);
-            },
-            child: PhysicalModel(
-              elevation: .8.h.w,
-              color: Colors.orange,
-              borderRadius: BorderRadius.circular(5.w),
-              shape: BoxShape.rectangle,
-              shadowColor: Colors.black,
-              child: Center(
-                child: Text(
-                  "Add ",
-                  style: TextStyle(fontSize: 0.8.h.w),
+                appData.addContacts(model);
+              },
+              child: PhysicalModel(
+                elevation: .8.h.w,
+                color: Colors.orange,
+                borderRadius: BorderRadius.circular(5.w),
+                shape: BoxShape.rectangle,
+                shadowColor: Colors.black,
+                child: Center(
+                  child: Text(
+                    "Add ",
+                    style: TextStyle(fontSize: 0.9.h.w),
+                  ),
                 ),
               ),
             ),
@@ -77,7 +89,7 @@ class TextFormFieldEmailWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controllers, //
+      controller: controllers,
       keyboardType: inputType,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: ((value) {
@@ -94,18 +106,12 @@ class TextFormFieldEmailWidget extends StatelessWidget {
           hintText: hintTexting,
           hintStyle: const TextStyle(color: Colors.white),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(2.w),
-              borderSide: BorderSide(
-                  width: 0.1.h,
-                  color: Colors.purple,
-                  style: BorderStyle.solid)),
+            borderRadius: BorderRadius.circular(2.w),
+          ),
           focusColor: Colors.yellow,
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(2.w),
-              borderSide: BorderSide(
-                  width: 0.5.h,
-                  color: Colors.purple,
-                  style: BorderStyle.solid))),
+            borderRadius: BorderRadius.circular(2.w),
+          )),
     );
   }
 }
@@ -140,18 +146,12 @@ class TextFormFieldPhoneWidget extends StatelessWidget {
           hintText: hintTexting,
           hintStyle: const TextStyle(color: Colors.white),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(2.w),
-              borderSide: BorderSide(
-                  width: 0.1.h,
-                  color: Colors.purple,
-                  style: BorderStyle.solid)),
+            borderRadius: BorderRadius.circular(2.w),
+          ),
           focusColor: Colors.yellow,
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(2.w),
-              borderSide: BorderSide(
-                  width: 0.5.h,
-                  color: Colors.purple,
-                  style: BorderStyle.solid))),
+            borderRadius: BorderRadius.circular(2.w),
+          )),
     );
   }
 }
@@ -186,18 +186,12 @@ class TextFormFieldNameWidget extends StatelessWidget {
           hintText: hintTexting,
           hintStyle: const TextStyle(color: Colors.white),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(2.w),
-              borderSide: BorderSide(
-                  width: 0.1.h,
-                  color: Colors.purple,
-                  style: BorderStyle.solid)),
+            borderRadius: BorderRadius.circular(2.w),
+          ),
           focusColor: Colors.yellow,
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(2.w),
-              borderSide: BorderSide(
-                  width: 0.5.h,
-                  color: Colors.purple,
-                  style: BorderStyle.solid))),
+            borderRadius: BorderRadius.circular(2.w),
+          )),
     );
   }
 }

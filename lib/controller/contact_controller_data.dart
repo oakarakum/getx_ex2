@@ -3,7 +3,19 @@ import 'package:getx_ex2/models/contact_model.dart';
 
 class AppData extends GetxController {
   var contacts = [].obs;
-  // bunun https://stackoverflow.com/questions/64544571/flutter-getx-forms-validation validation'ı
+
+  addContacts(ContactModel contact) {
+    contacts.add(contact);
+    Get.back();
+  }
+
+  deleteContacts(ContactModel contact) {
+    contacts.remove(contact);
+  }
+}
+
+
+  /* // bunun https://stackoverflow.com/questions/64544571/flutter-getx-forms-validation validation'ı
   RxString username = RxString('');
   RxnString errorText = RxnString(null);
   Rxn<Function()> submitFunc = Rxn<Function()>(null);
@@ -58,14 +70,4 @@ class AppData extends GetxController {
           const Duration(seconds: 1), () => print('User account created'));
       return true;
     };
-  }
-
-  addContacts(ContactModel contact) {
-    contacts.add(contact);
-    Get.back();
-  }
-
-  deleteContacts(ContactModel contact) {
-    contacts.remove(contact);
-  }
-}
+  } */
