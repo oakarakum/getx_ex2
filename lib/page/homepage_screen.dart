@@ -14,7 +14,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(
+          "Contact List",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -45,16 +50,22 @@ class HomePage extends StatelessWidget {
                             child: Column(
                               children: [
                                 Text(
-                                  model.name,
-                                  style: TextStyle(fontSize: 0.8.h.w),
+                                  "Name:${model.name}",
+                                  style: TextStyle(
+                                      fontSize: 0.8.h.w,
+                                      fontWeight: FontWeight.w600),
                                 ),
                                 Text(
-                                  model.email,
-                                  style: TextStyle(fontSize: 0.8.h.w),
+                                  "E-mail:${model.email}",
+                                  style: TextStyle(
+                                      fontSize: 0.8.h.w,
+                                      fontWeight: FontWeight.w600),
                                 ),
                                 Text(
-                                  model.phone,
-                                  style: TextStyle(fontSize: 0.8.h.w),
+                                  "Phone Number:${model.phone}",
+                                  style: TextStyle(
+                                      fontSize: 0.7.h.w,
+                                      fontWeight: FontWeight.w600),
                                 ),
                               ],
                             ),
