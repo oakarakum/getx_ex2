@@ -19,31 +19,22 @@ class ContactBook extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 10.h),
-          TextFormField(
-            controller: nameController,
-            keyboardType: TextInputType.name,
-            style: const TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-                fillColor: Colors.black,
-                filled: true,
-                hintText: "Enter Your Name",
-                hintStyle: const TextStyle(color: Colors.white),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(2.w),
-                    borderSide: BorderSide(
-                        width: 0.1.h,
-                        color: Colors.purple,
-                        style: BorderStyle.solid)),
-                focusColor: Colors.yellow,
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(2.w),
-                    borderSide: BorderSide(
-                        width: 0.5.h,
-                        color: Colors.purple,
-                        style: BorderStyle.solid))),
-          ),
+          TextFormFieldWidget(
+              controllers: nameController,
+              hintTexting: "Enter Your Name",
+              inputType: TextInputType.name),
           SizedBox(height: 10.h),
-          TextField(
+          TextFormFieldWidget(
+              controllers: emailController,
+              hintTexting: "Enter E-mail",
+              inputType: TextInputType.emailAddress),
+          SizedBox(height: 10.h),
+          TextFormFieldWidget(
+              controllers: phoneNumController,
+              hintTexting: "Enter Phone Number",
+              inputType: TextInputType.phone),
+          //
+          /* TextField(
             controller: emailController,
             keyboardType: TextInputType.emailAddress,
             style: const TextStyle(color: Colors.white),
@@ -65,8 +56,8 @@ class ContactBook extends StatelessWidget {
                         width: 0.5.h,
                         color: Colors.purple,
                         style: BorderStyle.solid))),
-          ),
-          SizedBox(height: 10.h),
+          ), */
+          /* SizedBox(height: 10.h),
           TextField(
             controller: phoneNumController,
             keyboardType: TextInputType.phone,
@@ -89,7 +80,7 @@ class ContactBook extends StatelessWidget {
                         width: 0.5.h,
                         color: Colors.purple,
                         style: BorderStyle.solid))),
-          ),
+          ), */
           SizedBox(height: 10.h),
           GestureDetector(
             onTap: () {
@@ -117,6 +108,44 @@ class ContactBook extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class TextFormFieldWidget extends StatelessWidget {
+  final TextEditingController controllers;
+  final String hintTexting;
+  final TextInputType inputType;
+  const TextFormFieldWidget({
+    Key? key,
+    required this.controllers,
+    required this.hintTexting,
+    required this.inputType,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: controllers, //
+      keyboardType: inputType,
+      style: const TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+          fillColor: Colors.black,
+          filled: true,
+          hintText: hintTexting,
+          hintStyle: const TextStyle(color: Colors.white),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(2.w),
+              borderSide: BorderSide(
+                  width: 0.1.h,
+                  color: Colors.purple,
+                  style: BorderStyle.solid)),
+          focusColor: Colors.yellow,
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(2.w),
+              borderSide: BorderSide(
+                  width: 0.5.h,
+                  color: Colors.purple,
+                  style: BorderStyle.solid))),
     );
   }
 }
